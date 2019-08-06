@@ -67,7 +67,7 @@ table th {
 
   <body>
     <div class="content_area">
-        <h1>MCデータエクステンションの操作テスト</h1>
+        <h1>1MCデータエクステンションの操作テスト</h1>
 
         <div class="list_area">
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
