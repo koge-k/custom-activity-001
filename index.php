@@ -51,6 +51,7 @@ table th {
     text-align: left;
     background-color: #eee;
     color: #777;
+    white-space: nowrap;
 }
 .content_area {
     padding: 20px;
