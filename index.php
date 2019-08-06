@@ -31,8 +31,8 @@ $dataextensionrow = new ET_DataExtension_Row();
 $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName01;
 
-// $dataextensionrow->props = array('NAME', 'CustomerKey');
-$dataextensionrow-> = array('Property' => 'DataExtension.CustomerKey',
+$dataextensionrow->props = array('NAME', 'CustomerKey');
+$dataextensionrow->search_filter = array('Property' => 'DataExtension.CustomerKey',
                             'SimpleOperator' => 'equals',
                             'Value' => customer_key
                             );
