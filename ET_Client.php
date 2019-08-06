@@ -14,7 +14,8 @@ class ET_Client extends SoapClient {
 	function __construct($getWSDL = false, $debug = false, $params = null) {	
 		$tenantTokens = array();
 		$config = false;
-
+var_dump(013);
+exit;
 		$this->xmlLoc = 'ExactTargetWSDL.xml';
 
 		if (file_exists(realpath(__DIR__ . "/config.php")))
