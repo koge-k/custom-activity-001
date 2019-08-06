@@ -54,7 +54,7 @@ $response_02 = $dataextensionrow->get();
 
 
 
-if (count($response_02->results)) {
+if ($response_02->status && count($response_02->results)) {
         print_r('<br><br>');
 
     foreach ($response_02->results as $row) {
