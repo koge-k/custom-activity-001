@@ -135,10 +135,15 @@ table th {
         if ($response_01->status && count($response_01->results)) {
             foreach ($response_01->results as $row) {
                 print('<tr>');
-                    print('<td><input type="button" name="del" value="×"></td>');
+                print('<form action="./">');
+                if ($param->Name == 'UID_HUSH') {
+                    print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
+                }
+                    print('<td><input type="submit" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     print('<td>' . $param->Value . '</td>');
                 }
+                print('</form>');
                 print('</tr>');
             }
         }
