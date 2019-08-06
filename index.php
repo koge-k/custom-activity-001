@@ -28,7 +28,7 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
   </head>
 
   <body>
-    <h1>Register for Email & Web Push Notifications</h1>
+    <h1>WebサーバからMCのデータエクステンションに登録</h1>
 
     <table>
         <tr>
