@@ -36,8 +36,8 @@ $response_01 = $dataextensionrow->get();
 var_dump($response_01);
 
 
-if ($response_01->status && count($response_01->result)) {
-    foreach ($response_01->result as $row) {
+if ($response_01->status && count($response_01->results)) {
+    foreach ($response_01->results as $row) {
         print_r($row);
     }
 }
@@ -54,16 +54,15 @@ $response_02 = $dataextensionrow->get();
 
 
 
-/*
-if (count($response_02->result)) {
+if (count($response_02->results)) {
         print_r('<br><br>');
 
-    foreach ($response_02->result as $row) {
+    foreach ($response_02->results as $row) {
         print_r($row);
     }
 }
 
-*/
+
 
 
     } catch (Exception $e) {
