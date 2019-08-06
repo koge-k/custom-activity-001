@@ -13,11 +13,19 @@
       "description": "Marketing Cloud App Center Authentication and Integration Client Secret.",
       "required": "true"
     },
-    "PUSH_REGISTRATION_DE_NAME": {
+    "PUSH_REGISTRATION_DE_NAME_01": {
       "description": "DE Name of Marketing Cloud Data Extension used to store web push registrations",
       "required": "true"
     },
-    "PUSH_REGISTRATION_DE_EXTERNAL_KEY":{
+    "PUSH_REGISTRATION_DE_EXTERNAL_KEY_01":{
+      "description": "DE External Key of Marketing Cloud Data Extension used to store web push registrations",
+      "required": "true"
+    },
+    "PUSH_REGISTRATION_DE_NAME_02": {
+      "description": "DE Name of Marketing Cloud Data Extension used to store web push registrations",
+      "required": "true"
+    },
+    "PUSH_REGISTRATION_DE_EXTERNAL_KEY_02":{
       "description": "DE External Key of Marketing Cloud Data Extension used to store web push registrations",
       "required": "true"
     },
