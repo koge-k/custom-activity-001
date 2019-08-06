@@ -31,34 +31,54 @@ try {
         $dataextensionrow->authStub = $myclient;
         $dataextensionrow->Name = $dataExtensionName01;
 
-        //$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
-
-
+        $dataextensionrow->props = array(
+                                        'TYPE',
+                                        'NAME',
+                                        'KANA',
+                                        'MAIL',
+                                        'TEL1',
+                                        'TEL2',
+                                        'POSTCODE',
+                                        'CITY',
+                                        'ADDRESS',
+                                        'ADDRESS_NUMBER',
+                                        'NEW_POSTCODE',
+                                        'NEW_CITY',
+                                        'NEW_ADDRESS',
+                                        'NEW_ADDRESS_NUMBER',
+                                        'ESTIMATE_DATE',
+                                        'MOVING_DATE1',
+                                        'MOVING_DATE2',
+                                        'MOVING_DATE3',
+                                        'REQUEST',
+                                        'FREE_DIAL',
+                                        'SMC_NUMBER',
+                                        'UID_HUSH',
+                                        'REG_DATE',
+                                    );
         $response_01 = $dataextensionrow->get();
-        //var_dump($response_01);
-
 
         if ($response_01->status && count($response_01->results)) {
+            print_r('<br><br>');
             foreach ($response_01->results as $row) {
-                foreach ($row->Properties as $param) {
-        //            print_r($param->Value);
+                print_r('<br>');
+                foreach ($row->Properties->Property as $param) {
+                    print_r($param->Value);
                 }
             }
         }
-
-
 
 
         $dataextensionrow = new ET_DataExtension_Row();
         $dataextensionrow->authStub = $myclient;
         $dataextensionrow->Name = $dataExtensionName02;
 
-        $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
+        $dataextensionrow->props = array(
+                                        'UID_HUSH',
+                                        'SMC_NUMBER',
+                                        'DATE_OF_ISSUE',
+                                    );
         $response_02 = $dataextensionrow->get();
-
-        var_dump($response_02);
-
-
 
         if ($response_02->status && count($response_02->results)) {
             print_r('<br><br>');
@@ -70,13 +90,9 @@ try {
             }
         }
 
-
-
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
-
-
 
 ?>
 <html lang="ja">
