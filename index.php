@@ -36,7 +36,7 @@ $response_01 = $dataextensionrow->get();
 var_dump($response_01);
 
 
-if (count($response_01->result)) {
+if ($response_01->status && count($response_01->result)) {
     foreach ($response_01->result as $row) {
         print_r($row);
     }
@@ -51,6 +51,10 @@ $dataextensionrow->Name = $dataExtensionName02;
 
 $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
 $response_02 = $dataextensionrow->get();
+
+
+
+/*
 if (count($response_02->result)) {
         print_r('<br><br>');
 
@@ -59,7 +63,7 @@ if (count($response_02->result)) {
     }
 }
 
-
+*/
 
 
     } catch (Exception $e) {
