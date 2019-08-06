@@ -32,8 +32,7 @@ $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName01;
 
 // $dataextensionrow->props = array('NAME', 'CustomerKey');
-$dataextensionrow-> = array('Property' : 'field1'
-                            'Property' : 'DataExtension.CustomerKey',
+$dataextensionrow-> = array('Property' : 'DataExtension.CustomerKey',
                             'SimpleOperator' : 'equals',
                             'Value' : customer_key
                             );
