@@ -17,9 +17,9 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
 }
 */
 ?>
-<html lang="en">
+<html lang="ja">
   <head>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Push Messaging &amp; Notifications</title>
 
     <link rel="icon" href="../images/favicon.ico">
@@ -28,7 +28,7 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
   </head>
 
   <body>
-    <h1>WebƒT[ƒo‚©‚çMC‚Ìƒf[ƒ^ƒGƒNƒXƒeƒ“ƒVƒ‡ƒ“‚É“o˜^</h1>
+    <h1>MCãƒ‡ãƒ¼ã‚¿ã‚¨ã‚¯ã‚¹ãƒ†ãƒ³ã‚·ãƒ§ãƒ³ã®æ“ä½œãƒ†ã‚¹ãƒˆ</h1>
 
     <table>
         <tr>
