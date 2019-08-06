@@ -24,7 +24,17 @@ try {
         $dataExtensionExternalKey = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
         $dataExtensionName = getenv('PUSH_REGISTRATION_DE_NAME_01');
 
-var_dump($myclient);
+
+$dataextensionrow = new ET_DataExtension_Row();
+$dataextensionrow->authStub = $myclient;
+$dataextensionrow->Name = $dataExtensionName;
+
+$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
+$response = $dataextensionrow->get();
+print_r($response);
+
+
+
 
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
