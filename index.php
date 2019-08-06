@@ -16,7 +16,7 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
   // display an error
 }
 */
-    $myclient = new ET_Client();
+//    $myclient = new ET_Client();
     $dataExtensionExternalKey = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
     $dataExtensionName = getenv('PUSH_REGISTRATION_DE_NAME_01');
 
