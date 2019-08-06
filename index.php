@@ -74,6 +74,7 @@ table th {
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
             <table>
                 <tr>
+                    <th>削除</th>
                     <th>TYPE</th>
                     <th>NAME</th>
                     <th>KANA</th>
@@ -133,6 +134,7 @@ table th {
         if ($response_01->status && count($response_01->results)) {
             foreach ($response_01->results as $row) {
                 print('<tr>');
+                    print('<td><input type="button" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     print('<td>' . $param->Value . '</td>');
                 }
