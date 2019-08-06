@@ -16,12 +16,19 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
   // display an error
 }
 */
-    $myclient = new ET_Client();
-    $dataExtensionExternalKey = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
-    $dataExtensionName = getenv('PUSH_REGISTRATION_DE_NAME_01');
 
-var_dump($dataExtensionExternalKey, $dataExtensionName);
+require('ET_Client.php');
+try {	
 
+        $myclient = new ET_Client();
+        $dataExtensionExternalKey = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
+        $dataExtensionName = getenv('PUSH_REGISTRATION_DE_NAME_01');
+
+var_dump($myclient);
+
+	catch (Exception $e) {
+    	echo 'Caught exception: ',  $e->getMessage(), "\n";
+	}
 
 
 
