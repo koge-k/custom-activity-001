@@ -65,11 +65,10 @@ if ($response_02->status && count($response_02->results)) {
 if ($response_02->status && count($response_02->results)) {
     foreach ($response_02->results as $row) {
         print_r('<br>');
-        foreach ($row->Properties as $param) {
+        foreach ($row->Properties->Property as $param) {
             print_r($param->Value);
         }
     }
-}
 }
 
 
