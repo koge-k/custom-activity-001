@@ -31,9 +31,17 @@ $dataextensionrow = new ET_DataExtension_Row();
 $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName01;
 
-$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
+// $dataextensionrow->props = array('NAME', 'CustomerKey');
+$dataextensionrow-> = array('Property' : 'field1'
+                            'Property' : 'DataExtension.CustomerKey',
+                            'SimpleOperator' : 'equals',
+                            'Value' : customer_key
+                            );
 $response_01 = $dataextensionrow->get();
-print_r($response_01->results);
+
+var_dump($response_01);
+
+var_dump('<br><br>');
 
 
 
@@ -41,7 +49,7 @@ $dataextensionrow = new ET_DataExtension_Row();
 $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName02;
 
-$dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
+// $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
 $response_02 = $dataextensionrow->get();
 print_r($response_02->results);
 
