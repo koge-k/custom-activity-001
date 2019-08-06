@@ -11,6 +11,9 @@ class ET_Client extends SoapClient {
 
 	private $defaultBaseSoapUrl = 'https://webservice.exacttarget.com';
 
+var_dump($defaultBaseSoapUrl);exit;
+
+
 	function __construct($getWSDL = false, $debug = false, $params = null) {	
 		$tenantTokens = array();
 		$config = false;
