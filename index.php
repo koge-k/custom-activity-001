@@ -38,7 +38,9 @@ var_dump($response_01);
 
 if ($response_01->status && count($response_01->results)) {
     foreach ($response_01->results as $row) {
-        print_r($row);
+        print_r($row->NAME);
+        print_r($row->SMC_NUMBER);
+        print_r($row->UID_HUSH);
     }
 }
 
