@@ -35,13 +35,13 @@ $dataextensionrow->Name = $dataExtensionName01;
 
 
 $response_01 = $dataextensionrow->get();
-var_dump($response_01);
+//var_dump($response_01);
 
 
 if ($response_01->status && count($response_01->results)) {
     foreach ($response_01->results as $row) {
         foreach ($row->Properties as $param) {
-            print_r($param->Value);
+//            print_r($param->Value);
         }
     }
 }
@@ -56,6 +56,7 @@ $dataextensionrow->Name = $dataExtensionName02;
 $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
 $response_02 = $dataextensionrow->get();
 
+var_dump($response_02);
 
 
 if ($response_02->status && count($response_02->results)) {
