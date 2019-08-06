@@ -180,7 +180,7 @@ table th {
 ?>
             </table>
         </div>
-
+<!--
         <table>
             <tr>
                 <td>Email</td>
@@ -201,12 +201,10 @@ table th {
               Register for Push Notifications
             </button>
         </p>
-
+-->
         <br />
         <br />
     </div>
-
-
 
     <div class="js-curl-command"></div>
 
