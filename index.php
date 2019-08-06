@@ -31,16 +31,18 @@ $dataextensionrow = new ET_DataExtension_Row();
 $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName01;
 
-$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
+//$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
+
+
 $response_01 = $dataextensionrow->get();
 var_dump($response_01);
 
 
 if ($response_01->status && count($response_01->results)) {
     foreach ($response_01->results as $row) {
-        print_r($row->NAME);
-        print_r($row->SMC_NUMBER);
-        print_r($row->UID_HUSH);
+        foreach ($row->Properties as $param) {
+            print_r($param->Value);
+        }
     }
 }
 
@@ -59,9 +61,14 @@ $response_02 = $dataextensionrow->get();
 if ($response_02->status && count($response_02->results)) {
         print_r('<br><br>');
 
+if ($response_02->status && count($response_02->results)) {
     foreach ($response_02->results as $row) {
-        print_r($row);
+        print_r('<br>');
+        foreach ($row->Properties as $param) {
+            print_r($param->Value);
+        }
     }
+}
 }
 
 
