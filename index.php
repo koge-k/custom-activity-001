@@ -41,7 +41,7 @@ table {
 }
 table td{
     padding: 10px 5px;
-    word-break: keep-all;
+    white-space: nowrap;
 }
 table tr:nth-child(odd){
     background-color: #f7f7f7;
