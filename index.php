@@ -21,18 +21,29 @@ require('ET_Client.php');
 try {
 
         $myclient = new ET_Client();
-        $dataExtensionExternalKey = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
-        $dataExtensionName = getenv('PUSH_REGISTRATION_DE_NAME_01');
+        $dataExtensionExternalKey01 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
+        $dataExtensionName01 = getenv('PUSH_REGISTRATION_DE_NAME_01');
+        $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
+        $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
 
 
 $dataextensionrow = new ET_DataExtension_Row();
 $dataextensionrow->authStub = $myclient;
-$dataextensionrow->Name = $dataExtensionName;
+$dataextensionrow->Name = $dataExtensionName01;
 
 $dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
 $response = $dataextensionrow->get();
 print_r($response);
 
+
+
+$dataextensionrow = new ET_DataExtension_Row();
+$dataextensionrow->authStub = $myclient;
+$dataextensionrow->Name = $dataExtensionName02;
+
+$dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
+$response = $dataextensionrow->get();
+print_r($response);
 
 
 
