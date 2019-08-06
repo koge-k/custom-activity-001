@@ -19,53 +19,11 @@ if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'mani
 
 require('ET_Client.php');
 try {
-
         $myclient = new ET_Client();
         $dataExtensionExternalKey01 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
         $dataExtensionName01 = getenv('PUSH_REGISTRATION_DE_NAME_01');
         $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
         $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $dataextensionrow = new ET_DataExtension_Row();
-        $dataextensionrow->authStub = $myclient;
-        $dataextensionrow->Name = $dataExtensionName02;
-
-        $dataextensionrow->props = array(
-                                        'UID_HUSH',
-                                        'SMC_NUMBER',
-                                        'DATE_OF_ISSUE',
-                                    );
-        $response_02 = $dataextensionrow->get();
-
-        if ($response_02->status && count($response_02->results)) {
-            print_r('<br><br>');
-            foreach ($response_02->results as $row) {
-                print_r('<br>');
-                foreach ($row->Properties->Property as $param) {
-                    print_r($param->Value);
-                }
-            }
-        }
-
-    } catch (Exception $e) {
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
 
 ?>
 <html lang="ja">
@@ -83,6 +41,7 @@ table {
 }
 table td{
     padding: 10px 5px;
+    word-break: keep-all;
 }
 table tr:nth-child(odd){
     background-color: #f7f7f7;
@@ -173,13 +132,11 @@ table th {
 
         if ($response_01->status && count($response_01->results)) {
             foreach ($response_01->results as $row) {
-                print('                <tr>');
+                print('<tr>');
                 foreach ($row->Properties->Property as $param) {
-                    print('                    <td>');
-                    print($param->Value);
-                    print('                    </td>');
+                    print('<td>' . $param->Value . '</td>');
                 }
-                print('                </tr>');
+                print('</tr>');
             }
         }
 
@@ -195,51 +152,32 @@ table th {
                     <th>SMC_NUMBER</th>
                     <th>DATE_OF_ISSUE</th>
                 </tr>
-                <tr>
-                    <td>c4ca4238a0b923820dcc509a6f75849b</td>
-                    <td>c81e728d9d4c2f636f067f89cc14862c</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>eccbc87e4b5ce2fe28308fd9f2a7baf3</td>
-                    <td>a87ff679a2f3e71d9181a67b7542122c</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>e4da3b7fbbce2345d7772b0674a318d5</td>
-                    <td>8f14e45fceea167a5a36dedd4bea2543</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>c9f0f895fb98ab9159f51fd0297e236d</td>
-                    <td>45c48cce2e2d7fbdea1afc51c7c6ad26</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>d3d9446802a44259755d38e6d163e820</td>
-                    <td>6512bd43d9caa6e02c990b0a82652dca</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>c20ad4d76fe97759aa27a0c99bff6710</td>
-                    <td>c51ce410c124a10e0db5e4b97fc2af39</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>aab3238922bcc25a6f606eb525ffdc56</td>
-                    <td>9bf31c7ff062936a96d3c8bd1f8f2ff3</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>c74d97b01eae257e44aa9d5bade97baf</td>
-                    <td>70efdf2ec9b086079795c442636b55fb</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
-                <tr>
-                    <td>6f4922f45568161a8cdf4ad2299f6d23</td>
-                    <td>1f0e3dad99908345f7439f8ffabdffc4</td>
-                    <td>2019年7月30日 0:00</td>
-                </tr>
+<?php
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName02;
+
+        $dataextensionrow->props = array(
+                                        'UID_HUSH',
+                                        'SMC_NUMBER',
+                                        'DATE_OF_ISSUE',
+                                    );
+        $response_02 = $dataextensionrow->get();
+
+        if ($response_02->status && count($response_02->results)) {
+            foreach ($response_02->results as $row) {
+                print('<tr>');
+                foreach ($row->Properties->Property as $param) {
+                    print('<td>' . $param->Value . '</td>');
+                }
+                print('</tr>');
+            }
+        }
+
+    } catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+?>
             </table>
         </div>
 
