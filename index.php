@@ -32,8 +32,8 @@ $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName01;
 
 $dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
-$response = $dataextensionrow->get();
-print_r($response);
+$response_01 = $dataextensionrow->get();
+print_r($response_01->results);
 
 
 
@@ -42,8 +42,8 @@ $dataextensionrow->authStub = $myclient;
 $dataextensionrow->Name = $dataExtensionName02;
 
 $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
-$response = $dataextensionrow->get();
-print_r($response);
+$response_02 = $dataextensionrow->get();
+print_r($response_02->results);
 
 
 
