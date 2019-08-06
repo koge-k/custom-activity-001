@@ -27,46 +27,19 @@ try {
         $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
 
 
-        $dataextensionrow = new ET_DataExtension_Row();
-        $dataextensionrow->authStub = $myclient;
-        $dataextensionrow->Name = $dataExtensionName01;
 
-        $dataextensionrow->props = array(
-                                        'TYPE',
-                                        'NAME',
-                                        'KANA',
-                                        'MAIL',
-                                        'TEL1',
-                                        'TEL2',
-                                        'POSTCODE',
-                                        'CITY',
-                                        'ADDRESS',
-                                        'ADDRESS_NUMBER',
-                                        'NEW_POSTCODE',
-                                        'NEW_CITY',
-                                        'NEW_ADDRESS',
-                                        'NEW_ADDRESS_NUMBER',
-                                        'ESTIMATE_DATE',
-                                        'MOVING_DATE1',
-                                        'MOVING_DATE2',
-                                        'MOVING_DATE3',
-                                        'REQUEST',
-                                        'FREE_DIAL',
-                                        'SMC_NUMBER',
-                                        'UID_HUSH',
-                                        'REG_DATE',
-                                    );
-        $response_01 = $dataextensionrow->get();
 
-        if ($response_01->status && count($response_01->results)) {
-            print_r('<br><br>');
-            foreach ($response_01->results as $row) {
-                print_r('<br>');
-                foreach ($row->Properties->Property as $param) {
-                    print_r($param->Value);
-                }
-            }
-        }
+
+
+
+
+
+
+
+
+
+
+
 
 
         $dataextensionrow = new ET_DataExtension_Row();
@@ -166,31 +139,51 @@ table th {
                     <th>UID_HUSH</th>
                     <th>REG_DATE</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                </tr>
+<?php
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName01;
+
+        $dataextensionrow->props = array(
+                                        'TYPE',
+                                        'NAME',
+                                        'KANA',
+                                        'MAIL',
+                                        'TEL1',
+                                        'TEL2',
+                                        'POSTCODE',
+                                        'CITY',
+                                        'ADDRESS',
+                                        'ADDRESS_NUMBER',
+                                        'NEW_POSTCODE',
+                                        'NEW_CITY',
+                                        'NEW_ADDRESS',
+                                        'NEW_ADDRESS_NUMBER',
+                                        'ESTIMATE_DATE',
+                                        'MOVING_DATE1',
+                                        'MOVING_DATE2',
+                                        'MOVING_DATE3',
+                                        'REQUEST',
+                                        'FREE_DIAL',
+                                        'SMC_NUMBER',
+                                        'UID_HUSH',
+                                        'REG_DATE',
+                                    );
+        $response_01 = $dataextensionrow->get();
+
+        if ($response_01->status && count($response_01->results)) {
+            foreach ($response_01->results as $row) {
+                print('                <tr>');
+                foreach ($row->Properties->Property as $param) {
+                    print('                    <td>');
+                    print($param->Value);
+                    print('                    </td>');
+                }
+                print('                </tr>');
+            }
+        }
+
+?>
             </table>
         </div>
 
