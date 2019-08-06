@@ -27,50 +27,48 @@ try {
         $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
 
 
-$dataextensionrow = new ET_DataExtension_Row();
-$dataextensionrow->authStub = $myclient;
-$dataextensionrow->Name = $dataExtensionName01;
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName01;
 
-//$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
-
-
-$response_01 = $dataextensionrow->get();
-//var_dump($response_01);
+        //$dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
 
 
-if ($response_01->status && count($response_01->results)) {
-    foreach ($response_01->results as $row) {
-        foreach ($row->Properties as $param) {
-//            print_r($param->Value);
+        $response_01 = $dataextensionrow->get();
+        //var_dump($response_01);
+
+
+        if ($response_01->status && count($response_01->results)) {
+            foreach ($response_01->results as $row) {
+                foreach ($row->Properties as $param) {
+        //            print_r($param->Value);
+                }
+            }
         }
-    }
-}
 
 
 
 
-$dataextensionrow = new ET_DataExtension_Row();
-$dataextensionrow->authStub = $myclient;
-$dataextensionrow->Name = $dataExtensionName02;
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName02;
 
-$dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
-$response_02 = $dataextensionrow->get();
+        $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
+        $response_02 = $dataextensionrow->get();
 
-var_dump($response_02);
+        var_dump($response_02);
 
 
-if ($response_02->status && count($response_02->results)) {
-        print_r('<br><br>');
 
-if ($response_02->status && count($response_02->results)) {
-    foreach ($response_02->results as $row) {
-        print_r('<br>');
-        foreach ($row->Properties->Property as $param) {
-            print_r($param->Value);
+        if ($response_02->status && count($response_02->results)) {
+            print_r('<br><br>');
+            foreach ($response_02->results as $row) {
+                print_r('<br>');
+                foreach ($row->Properties->Property as $param) {
+                    print_r($param->Value);
+                }
+            }
         }
-    }
-}
-
 
 
 
