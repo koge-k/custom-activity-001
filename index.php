@@ -34,7 +34,7 @@ $dataextensionrow->Name = $dataExtensionName01;
 $dataextensionrow->props = array('NAME', 'CustomerKey');
 $dataextensionrow->search_filter = array('Property' => 'DataExtension.CustomerKey',
                             'SimpleOperator' => 'equals',
-                            'Value' => customer_key
+                            'Value' => UID_HUSH
                             );
 $response_01 = $dataextensionrow->get();
 
