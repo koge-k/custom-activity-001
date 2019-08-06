@@ -33,7 +33,10 @@ $dataextensionrow->Name = $dataExtensionName01;
 
 $dataextensionrow->props = array('NAME', 'SMC_NUMBER', 'UID_HUSH');
 $response_01 = $dataextensionrow->get();
-if ($response_01->status && count($response_01->result)) {
+var_dump($response_01);
+
+
+if (count($response_01->result)) {
     foreach ($response_01->result as $row) {
         print_r($row);
     }
@@ -48,7 +51,7 @@ $dataextensionrow->Name = $dataExtensionName02;
 
 $dataextensionrow->props = array('UID_HUSH', 'SMC_NUMBER', 'DATE_OF_ISSUE');
 $response_02 = $dataextensionrow->get();
-if ($response_02->status && count($response_02->result)) {
+if (count($response_02->result)) {
         print_r('<br><br>');
 
     foreach ($response_02->result as $row) {
