@@ -23,6 +23,9 @@ try {
 
     
     if ($btn == 1) {
+        if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
+        }
         // 登録処理
         $dataextensionrow = new ET_DataExtension_Row();
         $dataextensionrow->authStub = $myclient;
