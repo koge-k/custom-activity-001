@@ -132,7 +132,7 @@ table {
     border-spacing: 0;
 }
 table td{
-    padding: 10px 5px;
+    padding: 10px;
     white-space: nowrap;
 }
 table tr:nth-child(odd){
