@@ -31,7 +31,11 @@ try {
         } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
-        } elseif (isset($_REQUEST['REG_DATE']) && $_REQUEST['REG_DATE'] != '' && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])) {
+        } elseif (isset($_REQUEST['REG_DATE']) 
+                    && $_REQUEST['REG_DATE'] != '' 
+                    && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})\/([1-9][0-9]{3})/', $_REQUEST['REG_DATE'])
+        ) {
             // 日付形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
         } else {
@@ -73,7 +77,11 @@ try {
         } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
-        } elseif (isset($_REQUEST['REG_DATE']) && $_REQUEST['REG_DATE'] != '' && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])) {
+        } elseif (isset($_REQUEST['REG_DATE']) 
+                    && $_REQUEST['REG_DATE'] != '' 
+                    && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})\/([1-9][0-9]{3})/', $_REQUEST['REG_DATE'])
+        ) {
             // 日付形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
         } else {
