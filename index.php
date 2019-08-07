@@ -139,6 +139,8 @@ table th {
                 if ($param->Name == 'UID_HUSH') {
                     print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
                 }
+var_dump($param->Name);
+
                     print('<td><input type="submit" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     print('<td>' . $param->Value . '</td>');
