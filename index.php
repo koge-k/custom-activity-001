@@ -9,6 +9,10 @@ if (isset($_REQUEST['crt']) && $_REQUEST['crt']) {
     $btn = 2;
 } elseif (isset($_REQUEST['del']) && $_REQUEST['del']) {
     $btn = 3;
+} elseif (isset($_REQUEST['crt_02']) && $_REQUEST['crt_02']) {
+    $btn = 4;
+} elseif (isset($_REQUEST['del_02']) && $_REQUEST['del_02']) {
+    $btn = 5;
 }
 if (isset($_REQUEST['uid_hush']) && $_REQUEST['uid_hush']) {
     $uid_hush = $_REQUEST['uid_hush'];
@@ -109,6 +113,59 @@ try {
             $dataextensionrow->props = array('UID_HUSH' => $uid_hush);
             $results = $dataextensionrow->delete();
         }
+
+    } elseif ($btn == 4) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
+        } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
+            // メール形式エラー
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
+        } else {
+            // 登録処理
+            $dataextensionrow = new ET_DataExtension_Row();
+            $dataextensionrow->authStub = $myclient;
+            $dataextensionrow->Name = $dataExtensionName01;
+            $dataextensionrow->props = array(
+                                            'TYPE'                  => $_REQUEST['TYPE'],
+                                            'NAME'                  => $_REQUEST['NAME'],
+                                            'KANA'                  => $_REQUEST['KANA'],
+                                            'MAIL'                  => $_REQUEST['MAIL'],
+                                            'TEL1'                  => $_REQUEST['TEL1'],
+                                            'TEL2'                  => $_REQUEST['TEL2'],
+                                            'POSTCODE'              => $_REQUEST['POSTCODE'],
+                                            'CITY'                  => $_REQUEST['CITY'],
+                                            'ADDRESS'               => $_REQUEST['ADDRESS'],
+                                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
+                                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
+                                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
+                                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
+                                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
+                                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
+                                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
+                                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
+                                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
+                                            'REQUEST'               => $_REQUEST['REQUEST'],
+                                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
+                                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                                            'UID_HUSH'              => $_REQUEST['UID_HUSH'],
+                                            'REG_DATE'              => $_REQUEST['REG_DATE'],
+                                        );
+            $dataextensionrow->post();
+        }
+
     }
 
 ?>
@@ -298,13 +355,24 @@ table th {
 
         if ($response_02->status && count($response_02->results)) {
             foreach ($response_02->results as $row) {
+                print('<form action="./">');
+                print('<td><input type="submit" name="del_02" value="×"></td>');
                 print('<tr>');
                 foreach ($row->Properties->Property as $param) {
                     print('<td>' . $param->Value . '</td>');
                 }
+                print('</form>');
                 print('</tr>');
             }
         }
+                <tr>
+                <form action="./">
+                    <th colspan="2"><input type="submit" name="crt_02" value="新規登録"></th>
+                    <th><input type="text" name="UID_HUSH" value=""></th>
+                    <th><input type="text" name="SMC_NUMBER" value=""></th>
+                    <th><input type="text" name="DATE_OF_ISSUE" value=""></th>
+                </form>
+                </tr>
 
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
