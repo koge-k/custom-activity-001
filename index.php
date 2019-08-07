@@ -21,81 +21,71 @@ try {
     $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
     $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
 
-    
     if ($btn == 1) {
         if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
+        } else {
+            // 登録処理
+            $dataextensionrow = new ET_DataExtension_Row();
+            $dataextensionrow->authStub = $myclient;
+            $dataextensionrow->Name = $dataExtensionName01;
+            $dataextensionrow->props = array(
+                                'TYPE'                  => $_REQUEST['TYPE'],
+                                'NAME'                  => $_REQUEST['NAME'],
+                                'KANA'                  => $_REQUEST['KANA'],
+                                'MAIL'                  => $_REQUEST['MAIL'],
+                                'TEL1'                  => $_REQUEST['TEL1'],
+                                'TEL2'                  => $_REQUEST['TEL2'],
+                                'POSTCODE'              => $_REQUEST['POSTCODE'],
+                                'CITY'                  => $_REQUEST['CITY'],
+                                'ADDRESS'               => $_REQUEST['ADDRESS'],
+                                'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
+                                'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
+                                'NEW_CITY'              => $_REQUEST['NEW_CITY'],
+                                'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
+                                'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
+                                'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
+                                'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
+                                'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
+                                'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
+                                'REQUEST'               => $_REQUEST['REQUEST'],
+                                'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
+                                'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                                'UID_HUSH'              => $_REQUEST['UID_HUSH'],
+                                'REG_DATE'              => $_REQUEST['REG_DATE'],
+                            );
+            $dataextensionrow->post();
         }
-        // 登録処理
-        $dataextensionrow = new ET_DataExtension_Row();
-        $dataextensionrow->authStub = $myclient;
-        $dataextensionrow->Name = $dataExtensionName01;
-        $dataextensionrow->props = array(
-                            'TYPE'                  => $_REQUEST['TYPE'],
-                            'NAME'                  => $_REQUEST['NAME'],
-                            'KANA'                  => $_REQUEST['KANA'],
-                            'MAIL'                  => $_REQUEST['MAIL'],
-                            'TEL1'                  => $_REQUEST['TEL1'],
-                            'TEL2'                  => $_REQUEST['TEL2'],
-                            'POSTCODE'              => $_REQUEST['POSTCODE'],
-                            'CITY'                  => $_REQUEST['CITY'],
-                            'ADDRESS'               => $_REQUEST['ADDRESS'],
-                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
-                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
-                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
-                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
-                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
-                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
-                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
-                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
-                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
-                            'REQUEST'               => $_REQUEST['REQUEST'],
-                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
-                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
-                            'UID_HUSH'              => $_REQUEST['UID_HUSH'],
-                            'REG_DATE'              => $_REQUEST['REG_DATE'],
-                        );
-        $dataextensionrow->post();
 
     } elseif ($btn == 2) {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
+        } else {
+            // 更新処理
+            $dataextensionrow = new ET_DataExtension_Row();
+            $dataextensionrow->authStub = $myclient;
+            $dataextensionrow->Name = $dataExtensionName01;
+            $dataextensionrow->props = array(
+    "NameOfKeyField" => "151515151",
+    "ExampleField" => "SDK Example,
+    now Updated!"
+            );
+    $results = $dataextensionrow->patch();
+
+
         }
-        // 更新処理
-        $dataextensionrow = new ET_DataExtension_Row();
-        $dataextensionrow->authStub = $myclient;
-        $dataextensionrow->Name = $dataExtensionName01;
-        $dataextensionrow->props = array(
-"NameOfKeyField" => "151515151",
-"ExampleField" => "SDK Example,
-now Updated!"
-        );
-$results = $dataextensionrow->patch();
-print_r($results);
-
-
-
-
-
     } elseif ($btn == 3) {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
+        } else {
+            // 削除処理
+            $dataextensionrow = new ET_DataExtension_Row();
+            $dataextensionrow->authStub = $myclient;
+            $dataextensionrow->Name = $dataExtensionName01;
+            $dataextensionrow->props = array('UID_HUSH' => $uid_hush);
+            $results = $dataextensionrow->delete();
         }
-        // 削除処理
-        $dataextensionrow = new ET_DataExtension_Row();
-        $dataextensionrow->authStub = $myclient;
-        $dataextensionrow->Name = $dataExtensionName01;
-        $dataextensionrow->props = array('UID_HUSH' => $uid_hush);
-        $results = $dataextensionrow->delete();
     }
-
-
-
-
-
-
-
-
 
 ?>
 <html lang="ja">
@@ -106,6 +96,12 @@ print_r($results);
     <link rel="icon" href="../images/favicon.ico">
     <link rel="manifest" href="manifest.json.php">
 <style>
+input[type="submit"] {
+    padding: 5px: 10px;
+}
+input[type="text"] {
+    padding: 5px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
