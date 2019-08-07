@@ -63,11 +63,10 @@ try {
         } else {
 
             // 更新処理（なんかできないんで作り替えにしてみる）
-/* ---------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
-            $dataextensionrow->CustomerKey = $uid_hush;
             $dataextensionrow->props = array(
                                             'TYPE'                  => $_REQUEST['TYPE'],
                                             'NAME'                  => $_REQUEST['NAME'],
@@ -90,11 +89,12 @@ try {
                                             'REQUEST'               => $_REQUEST['REQUEST'],
                                             'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
                                             'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                                            'UID_HUSH'              => $uid_hush,
                                             'REG_DATE'              => $_REQUEST['REG_DATE'],
                                         );
-            $re = $dataextensionrow->patch();
---------------------------------------------------------------------------------------- */
-
+            $dataextensionrow->patch();
+//--------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------
             // 削除処理
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
@@ -132,6 +132,7 @@ try {
                                             'REG_DATE'              => $_REQUEST['REG_DATE'],
                                         );
             $dataextensionrow->post();
+--------------------------------------------------------------------------------------- */
 
         }
 
