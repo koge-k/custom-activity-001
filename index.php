@@ -2,7 +2,7 @@
 require('ET_Client.php');
 
 $uid_hush = null;
-$btn_type = 0;
+$btn = 0;
 if (isset($_REQUEST['crt']) && $_REQUEST['crt']) {
     $btn = 1;
 } elseif (isset($_REQUEST['upd']) && $_REQUEST['upd']) {
@@ -33,8 +33,8 @@ try {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
         } elseif (isset($_REQUEST['REG_DATE']) 
                     && $_REQUEST['REG_DATE'] != '' 
-                    && !preg_match('^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['REG_DATE'])
-                    && !preg_match('^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['REG_DATE'])
         ) {
             // 日付形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
@@ -79,8 +79,8 @@ try {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
         } elseif (isset($_REQUEST['REG_DATE']) 
                     && $_REQUEST['REG_DATE'] != '' 
-                    && !preg_match('^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['REG_DATE'])
-                    && !preg_match('^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['REG_DATE'])
+                    && !preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['REG_DATE'])
         ) {
             // 日付形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
@@ -133,8 +133,8 @@ try {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
         } elseif (isset($_REQUEST['DATE_OF_ISSUE']) 
                     && $_REQUEST['DATE_OF_ISSUE'] != '' 
-                    && !preg_match('^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['DATE_OF_ISSUE'])
-                    && !preg_match('^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['DATE_OF_ISSUE'])
+                    && !preg_match('/^\d{4}\/\d{1,2}\/\d{1,2}$/', $_REQUEST['DATE_OF_ISSUE'])
+                    && !preg_match('/^\d{1,2}\/\d{1,2}\/\d{4}/', $_REQUEST['DATE_OF_ISSUE'])
         ) {
             // 日付形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
