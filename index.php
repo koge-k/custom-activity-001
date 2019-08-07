@@ -43,7 +43,7 @@ print_r($results);
 
     } elseif ($btn == 3) {
         if (!$uid_hush) {
-            print(<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>);
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
         }
         // 削除処理
         $dataextensionrow = new ET_DataExtension_Row();
