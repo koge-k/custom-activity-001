@@ -65,8 +65,8 @@ try {
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
-            $dataextensionrow->props = array('Name' => 'UID_HUSH', 'CustomerKey' => $uid_hush);
-            $dataextensionrow->columns = array(
+            $dataextensionrow->CustomerKey = $uid_hush;
+            $dataextensionrow->props = array(
                                             'TYPE'                  => $_REQUEST['TYPE'],
                                             'NAME'                  => $_REQUEST['NAME'],
                                             'KANA'                  => $_REQUEST['KANA'],
