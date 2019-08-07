@@ -9,8 +9,8 @@ try {
 
 
 var_dump($_REQUEST);
-var_dump($_REQUEST['UID_HUSH']);
-var_dump($_REQUEST->UID_HUSH);
+var_dump($_REQUEST['uid_hush']);
+var_dump($_REQUEST->uid_hush);
 
 
 
