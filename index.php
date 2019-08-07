@@ -61,6 +61,8 @@ try {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
         } else {
+var_dump(11111);
+
             // 更新処理
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
@@ -88,6 +90,9 @@ try {
                                             'REQUEST'               => $_REQUEST['REQUEST'],
                                             'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
                                             'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+'UID_HUSH'              => $uid_hush,
+
+
                                             'REG_DATE'              => $_REQUEST['REG_DATE'],
                                         );
             $dataextensionrow->patch();
