@@ -365,6 +365,10 @@ table th {
                 print('</tr>');
             }
         }
+    } catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+?>
                 <tr>
                 <form action="./">
                     <th colspan="2"><input type="submit" name="crt_02" value="新規登録"></th>
@@ -373,11 +377,6 @@ table th {
                     <th><input type="text" name="DATE_OF_ISSUE" value=""></th>
                 </form>
                 </tr>
-
-    } catch (Exception $e) {
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
-?>
             </table>
         </div>
 <!--
