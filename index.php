@@ -356,9 +356,9 @@ table th {
 
         if ($response_02->status && count($response_02->results)) {
             foreach ($response_02->results as $row) {
+                print('<tr>');
                 print('<form action="./">');
                 print('<td><input type="submit" name="del_02" value="×"></td>');
-                print('<tr>');
                 foreach ($row->Properties->Property as $param) {
                     print('<td>' . $param->Value . '</td>');
                 }
