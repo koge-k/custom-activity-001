@@ -31,6 +31,9 @@ try {
         } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
+        } elseif (isset($_REQUEST['REG_DATE']) && $_REQUEST['REG_DATE'] != '' && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])) {
+            // 日付形式エラー
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
         } else {
             // 登録処理
             $dataextensionrow = new ET_DataExtension_Row();
@@ -70,6 +73,9 @@ try {
         } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
+        } elseif (isset($_REQUEST['REG_DATE']) && $_REQUEST['REG_DATE'] != '' && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['REG_DATE'])) {
+            // 日付形式エラー
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
         } else {
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
@@ -117,6 +123,9 @@ try {
     } elseif ($btn == 4) {
         if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
+        } elseif (isset($_REQUEST['DATE_OF_ISSUE']) && $_REQUEST['DATE_OF_ISSUE'] != '' && !preg_match('/^([1-9][0-9]{3})\/([1-9]{1}|1[0-2]{1})\/([1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/', $_REQUEST['DATE_OF_ISSUE'])) {
+            // 日付形式エラー
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">日付の形式が不正です。</p>');
         } else {
             // 登録処理
             $dataextensionrow = new ET_DataExtension_Row();
