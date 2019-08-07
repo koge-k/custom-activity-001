@@ -30,30 +30,30 @@ try {
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
             $dataextensionrow->props = array(
-                                'TYPE'                  => $_REQUEST['TYPE'],
-                                'NAME'                  => $_REQUEST['NAME'],
-                                'KANA'                  => $_REQUEST['KANA'],
-                                'MAIL'                  => $_REQUEST['MAIL'],
-                                'TEL1'                  => $_REQUEST['TEL1'],
-                                'TEL2'                  => $_REQUEST['TEL2'],
-                                'POSTCODE'              => $_REQUEST['POSTCODE'],
-                                'CITY'                  => $_REQUEST['CITY'],
-                                'ADDRESS'               => $_REQUEST['ADDRESS'],
-                                'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
-                                'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
-                                'NEW_CITY'              => $_REQUEST['NEW_CITY'],
-                                'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
-                                'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
-                                'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
-                                'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
-                                'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
-                                'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
-                                'REQUEST'               => $_REQUEST['REQUEST'],
-                                'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
-                                'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
-                                'UID_HUSH'              => $_REQUEST['UID_HUSH'],
-                                'REG_DATE'              => $_REQUEST['REG_DATE'],
-                            );
+                                            'TYPE'                  => $_REQUEST['TYPE'],
+                                            'NAME'                  => $_REQUEST['NAME'],
+                                            'KANA'                  => $_REQUEST['KANA'],
+                                            'MAIL'                  => $_REQUEST['MAIL'],
+                                            'TEL1'                  => $_REQUEST['TEL1'],
+                                            'TEL2'                  => $_REQUEST['TEL2'],
+                                            'POSTCODE'              => $_REQUEST['POSTCODE'],
+                                            'CITY'                  => $_REQUEST['CITY'],
+                                            'ADDRESS'               => $_REQUEST['ADDRESS'],
+                                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
+                                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
+                                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
+                                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
+                                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
+                                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
+                                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
+                                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
+                                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
+                                            'REQUEST'               => $_REQUEST['REQUEST'],
+                                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
+                                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                                            'UID_HUSH'              => $_REQUEST['UID_HUSH'],
+                                            'REG_DATE'              => $_REQUEST['REG_DATE'],
+                                        );
             $dataextensionrow->post();
         }
 
@@ -65,15 +65,34 @@ try {
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
-            $dataextensionrow->props = array(
-    "NameOfKeyField" => "151515151",
-    "ExampleField" => "SDK Example,
-    now Updated!"
-            );
-    $results = $dataextensionrow->patch();
-
-
+            $dataextensionrow->props = array('Name' => 'UID_HUSH', 'CustomerKey' => $uid_hush);
+            $dataextensionrow->columns = array(
+                                            'TYPE'                  => $_REQUEST['TYPE'],
+                                            'NAME'                  => $_REQUEST['NAME'],
+                                            'KANA'                  => $_REQUEST['KANA'],
+                                            'MAIL'                  => $_REQUEST['MAIL'],
+                                            'TEL1'                  => $_REQUEST['TEL1'],
+                                            'TEL2'                  => $_REQUEST['TEL2'],
+                                            'POSTCODE'              => $_REQUEST['POSTCODE'],
+                                            'CITY'                  => $_REQUEST['CITY'],
+                                            'ADDRESS'               => $_REQUEST['ADDRESS'],
+                                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
+                                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
+                                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
+                                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
+                                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
+                                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
+                                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
+                                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
+                                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
+                                            'REQUEST'               => $_REQUEST['REQUEST'],
+                                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
+                                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                                            'REG_DATE'              => $_REQUEST['REG_DATE'],
+                                        );
+            $dataextensionrow->patch();
         }
+
     } elseif ($btn == 3) {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
