@@ -5,7 +5,7 @@ $uid_hush = null;
 $btn_type = 0;
 if (isset($_REQUEST['crt']) && $_REQUEST['crt']) {
     $btn = 1;
-} elseif ($isset($_REQUEST['upd']) && _REQUEST['upd']) {
+} elseif ($isset($_REQUEST['upd']) && $_REQUEST['upd']) {
     $btn = 2;
 } elseif (isset($_REQUEST['del']) && $_REQUEST['del']) {
     $btn = 3;
