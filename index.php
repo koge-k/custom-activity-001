@@ -1,22 +1,4 @@
 <?php
-/*
-if (file_exists ( ABSPATH . 'manifest.json' )) {
-  $oldManifestJson = file_get_contents ( ABSPATH . 'manifest.json' );
-} else {
-  $oldManifestJson = '{}';
-}
-$data = json_decode ( $oldManifestJson, true );
-
-$data ['gcm_sender_id'] = $settings ['gcm_sender_id'];
-$data ['gcm_user_visible_only'] = true;
-$newManifestJson = json_encode ( $data );
-if ( is_writable ( ABSPATH . 'manifest.json' ) || !file_exists ( ABSPATH . 'manifest.json' ) && is_writable ( ABSPATH ) ) {
-  file_put_contents ( ABSPATH . 'manifest.json', $newManifestJson );
-} else {
-  // display an error
-}
-*/
-
 require('ET_Client.php');
 try {
         $myclient = new ET_Client();
@@ -24,6 +6,15 @@ try {
         $dataExtensionName01 = getenv('PUSH_REGISTRATION_DE_NAME_01');
         $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
         $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
+
+
+var_dump($_REQUEST);
+var_dump($_REQUEST['UID_HUSH']);
+var_dump($_REQUEST->UID_HUSH);
+
+
+
+
 
 ?>
 <html lang="ja">
