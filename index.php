@@ -337,6 +337,7 @@ table th {
             <div class="list_title">[データエクステンション]：LINE_ID_de</div>
             <table>
                 <tr>
+                    <th>削除</th>
                     <th>UID_HUSH</th>
                     <th>SMC_NUMBER</th>
                     <th>DATE_OF_ISSUE</th>
@@ -371,7 +372,7 @@ table th {
 ?>
                 <tr>
                 <form action="./">
-                    <th colspan="2"><input type="submit" name="crt_02" value="新規登録"></th>
+                    <th><input type="submit" name="crt_02" value="新規登録"></th>
                     <th><input type="text" name="UID_HUSH" value=""></th>
                     <th><input type="text" name="SMC_NUMBER" value=""></th>
                     <th><input type="text" name="DATE_OF_ISSUE" value=""></th>
