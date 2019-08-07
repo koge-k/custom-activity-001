@@ -1,16 +1,61 @@
 <?php
 require('ET_Client.php');
+
+$uid_hush = null;
+$btn_type = 0;
+if (isset($_REQUEST['crt']) && $_REQUEST['crt']) {
+    $btn = 1;
+} elseif ($isset($_REQUEST['upd']) && _REQUEST['upd']) {
+    $btn = 2;
+} elseif (isset($_REQUEST['del']) && $_REQUEST['del']) {
+    $btn = 3;
+}
+if (isset($_REQUEST['uid_hush']) && $_REQUEST['uid_hush']) {
+    $uid_hush = $_REQUEST['uid_hush'];
+}
+
 try {
-        $myclient = new ET_Client();
-        $dataExtensionExternalKey01 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
-        $dataExtensionName01 = getenv('PUSH_REGISTRATION_DE_NAME_01');
-        $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
-        $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
+    $myclient = new ET_Client();
+    $dataExtensionExternalKey01 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_01');
+    $dataExtensionName01 = getenv('PUSH_REGISTRATION_DE_NAME_01');
+    $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
+    $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
+
+    
+    if ($btn == 1) {
+        // 登録処理
+    } elseif ($btn == 2) {
+        if (!$uid_hush) {
+            print(<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>);
+        }
+        // 更新処理
 
 
-var_dump($_REQUEST);
-var_dump($_REQUEST['uid_hush']);
-var_dump($_REQUEST->uid_hush);
+
+
+$dataextensionrow->props = array("NameOfKeyField" => "151515151", "ExampleField" => "SDK Example, now Updated!");
+$results = $dataextensionrow->patch();
+print_r($results);
+
+
+
+
+
+    } elseif ($btn == 3) {
+        if (!$uid_hush) {
+            print(<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>);
+        }
+        // 削除処理
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName01;
+        $dataextensionrow->props = array('UID_HUSH' => $uid_hush);
+        $results = $dataextensionrow->delete();
+    }
+
+
+
+
 
 
 
