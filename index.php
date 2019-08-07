@@ -26,7 +26,7 @@ try {
         // 登録処理
     } elseif ($btn == 2) {
         if (!$uid_hush) {
-            print(<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>);
+            print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
         }
         // 更新処理
 
