@@ -24,7 +24,7 @@ try {
     if ($btn == 1) {
         if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
-        } elseif (isset($_REQUEST['MAIL']) && !$_REQUEST['MAIL'] && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
+        } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
         } else {
@@ -63,7 +63,7 @@ try {
     } elseif ($btn == 2) {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
-        } elseif (isset($_REQUEST['MAIL']) && !$_REQUEST['MAIL'] && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
+        } elseif (isset($_REQUEST['MAIL']) && $_REQUEST['MAIL'] != '' && !preg_match('/^[!-~]+@[!-~]+$/', $_REQUEST['MAIL'])) {
             // メール形式エラー
             print('<p style="color: red; font-size: 20pt; padding: 20px;">MAILの形式が不正です。</p>');
         } else {
