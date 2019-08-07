@@ -24,16 +24,49 @@ try {
     
     if ($btn == 1) {
         // 登録処理
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName01;
+        $dataextensionrow->props = array(
+                            'TYPE'                  => $_REQUEST['TYPE'],
+                            'NAME'                  => $_REQUEST['NAME'],
+                            'KANA'                  => $_REQUEST['KANA'],
+                            'MAIL'                  => $_REQUEST['MAIL'],
+                            'TEL1'                  => $_REQUEST['TEL1'],
+                            'TEL2'                  => $_REQUEST['TEL2'],
+                            'POSTCODE'              => $_REQUEST['POSTCODE'],
+                            'CITY'                  => $_REQUEST['CITY'],
+                            'ADDRESS'               => $_REQUEST['ADDRESS'],
+                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
+                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
+                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
+                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
+                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
+                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
+                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
+                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
+                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
+                            'REQUEST'               => $_REQUEST['REQUEST'],
+                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
+                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
+                            'UID_HUSH'              => $_REQUEST['UID_HUSH'],
+                            'REG_DATE'              => $_REQUEST['REG_DATE'],
+                        );
+        $dataextensionrow->post();
+
     } elseif ($btn == 2) {
         if (!$uid_hush) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">不正なアクセスです。</p>');
         }
         // 更新処理
-
-
-
-
-$dataextensionrow->props = array("NameOfKeyField" => "151515151", "ExampleField" => "SDK Example, now Updated!");
+        $dataextensionrow = new ET_DataExtension_Row();
+        $dataextensionrow->authStub = $myclient;
+        $dataextensionrow->Name = $dataExtensionName01;
+        $dataextensionrow->props = array(
+"NameOfKeyField" => "151515151",
+"ExampleField" => "SDK Example,
+now Updated!"
+        );
 $results = $dataextensionrow->patch();
 print_r($results);
 
@@ -111,6 +144,7 @@ table th {
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
             <table>
                 <tr>
+                    <th>更新</th>
                     <th>削除</th>
                     <th>TYPE</th>
                     <th>NAME</th>
@@ -172,12 +206,15 @@ table th {
             foreach ($response_01->results as $row) {
                 print('<tr>');
                 print('<form action="./">');
-                    print('<td><input type="submit" name="del" value="×"></td>');
+                print('<td><input type="submit" name="upd" value="○"></td>');
+                print('<td><input type="submit" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     if ($param->Name == 'UID_HUSH') {
                         print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
+                        print('<td>' . $param->Value . '</td>');
+                    } else {
+                        print('<td><input type="text" name="' . $param->Name . '" value="' . $param->Value . '" ></td>');
                     }
-                    print('<td>' . $param->Value . '</td>');
                 }
                 print('</form>');
                 print('</tr>');
@@ -185,6 +222,34 @@ table th {
         }
 
 ?>
+                <tr>
+                <form action="./">
+                    <th colspan="2"><input type="submit" name="crt" value="新規登録"></th>
+                    <th><input type="text" name="TYPE" value=""></th>
+                    <th><input type="text" name="NAME" value=""></th>
+                    <th><input type="text" name="KANA" value=""></th>
+                    <th><input type="text" name="MAIL" value=""></th>
+                    <th><input type="text" name="TEL1" value=""></th>
+                    <th><input type="text" name="TEL2" value=""></th>
+                    <th><input type="text" name="POSTCODE" value=""></th>
+                    <th><input type="text" name="CITY" value=""></th>
+                    <th><input type="text" name="ADDRESS" value=""></th>
+                    <th><input type="text" name="ADDRESS_NUMBER" value=""></th>
+                    <th><input type="text" name="NEW_POSTCODE" value=""></th>
+                    <th><input type="text" name="NEW_CITY" value=""></th>
+                    <th><input type="text" name="NEW_ADDRESS" value=""></th>
+                    <th><input type="text" name="NEW_ADDRESS_NUMBER" value=""></th>
+                    <th><input type="text" name="ESTIMATE_DATE" value=""></th>
+                    <th><input type="text" name="MOVING_DATE1" value=""></th>
+                    <th><input type="text" name="MOVING_DATE2" value=""></th>
+                    <th><input type="text" name="MOVING_DATE3" value=""></th>
+                    <th><input type="text" name="REQUEST" value=""></th>
+                    <th><input type="text" name="FREE_DIAL" value=""></th>
+                    <th><input type="text" name="SMC_NUMBER" value=""></th>
+                    <th><input type="text" name="UID_HUSH" value=""></th>
+                    <th><input type="text" name="REG_DATE" value=""></th>
+                </form>
+                </tr>
             </table>
         </div>
 
