@@ -136,13 +136,11 @@ table th {
             foreach ($response_01->results as $row) {
                 print('<tr>');
                 print('<form action="./">');
-                if ($param->Name == 'UID_HUSH') {
-                    print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
-                }
-var_dump($param->Name);
-
                     print('<td><input type="submit" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
+                    if ($param->Name == 'UID_HUSH') {
+                        print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
+                    }
                     print('<td>' . $param->Value . '</td>');
                 }
                 print('</form>');
