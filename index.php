@@ -229,7 +229,7 @@ table th {
         $dColumn->search_filter = array(
                                         'Property' => 'DataExtension.CustomerKey',
                                         'SimpleOperator' => 'equals',
-                                        'Value' => customer_key
+                                        'Value' => $dataExtensionExternalKey01
                                     );
 
         $odColumns = $dColumn->get();
