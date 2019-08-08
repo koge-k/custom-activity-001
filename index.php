@@ -220,33 +220,6 @@ table th {
         <div class="list_area">
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
             <table>
-                <tr>
-                    <th>更新</th>
-                    <th>削除</th>
-                    <th>TYPE</th>
-                    <th>NAME</th>
-                    <th>KANA</th>
-                    <th>MAIL</th>
-                    <th>TEL1</th>
-                    <th>TEL2</th>
-                    <th>POSTCODE</th>
-                    <th>CITY</th>
-                    <th>ADDRESS</th>
-                    <th>ADDRESS_NUMBER</th>
-                    <th>NEW_POSTCODE</th>
-                    <th>NEW_CITY</th>
-                    <th>NEW_ADDRESS</th>
-                    <th>NEW_ADDRESS_NUMBER</th>
-                    <th>ESTIMATE_DATE</th>
-                    <th>MOVING_DATE1</th>
-                    <th>MOVING_DATE2</th>
-                    <th>MOVING_DATE3</th>
-                    <th>REQUEST</th>
-                    <th>FREE_DIAL</th>
-                    <th>SMC_NUMBER</th>
-                    <th>UID_HUSH</th>
-                    <th>REG_DATE</th>
-                </tr>
 <?php
         $dataextensionrow = new ET_DataExtension_Row();
         $dataextensionrow->authStub = $myclient;
