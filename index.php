@@ -225,18 +225,19 @@ table th {
         $dColumn = new ET_DataExtension_Column();
         $dColumn->authStub = $myclient;
         $dColumn->props = array('Name', 'CustomerKey');
-        $dColumn->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $dataExtensionExternalKey01);
-
-
-
-
-
-
-
-
-
+        $dColumn->filter = array(
+                                'Property' => 'CustomerKey',
+                                'SimpleOperator' => 'equals',
+                                'Value' => $dataExtensionExternalKey01
+        );
         $odColumns = $dColumn->get();
-print_r($odColumns);
+
+        $aColumnArray = array();
+        foreach ($odColumns->results as $aColumn) {
+            $aColumnArray[] = $aColumn['Name'];
+        }
+
+print_r($aColumnArray);
 
 
 
