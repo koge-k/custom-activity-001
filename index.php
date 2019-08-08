@@ -224,13 +224,18 @@ table th {
 
         $dColumn = new ET_DataExtension_Column();
         $dColumn->authStub = $myclient;
-        $dColumn->Name = $dataExtensionName01;
         $dColumn->props = array('Name', 'CustomerKey');
-        $dColumn->search_filter = array(
-                                        'Property' => 'DataExtension.CustomerKey',
-                                        'SimpleOperator' => 'equals',
-                                        'Value' => $dataExtensionExternalKey01
-                                    );
+        $dColumn->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => 'MyDataExtension');
+
+
+
+
+        $dColumn->Name = $dataExtensionName01;
+
+
+
+
+
 
         $odColumns = $dColumn->get();
 print_r($odColumns);
