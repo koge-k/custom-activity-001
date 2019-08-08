@@ -226,29 +226,7 @@ table th {
         $dataextensionrow->Name = $dataExtensionName01;
 
         $dataextensionrow->props = array(
-                                        'TYPE',
-                                        'NAME',
-                                        'KANA',
-                                        'MAIL',
-                                        'TEL1',
-                                        'TEL2',
-                                        'POSTCODE',
-                                        'CITY',
-                                        'ADDRESS',
-                                        'ADDRESS_NUMBER',
-                                        'NEW_POSTCODE',
-                                        'NEW_CITY',
-                                        'NEW_ADDRESS',
-                                        'NEW_ADDRESS_NUMBER',
-                                        'ESTIMATE_DATE',
-                                        'MOVING_DATE1',
-                                        'MOVING_DATE2',
-                                        'MOVING_DATE3',
-                                        'REQUEST',
-                                        'FREE_DIAL',
-                                        'SMC_NUMBER',
-                                        'UID_HUSH',
-                                        'REG_DATE',
+
                                     );
         $response_01 = $dataextensionrow->get();
 var_dump($response_01);
