@@ -203,31 +203,7 @@ table th {
         $dataextensionrow->authStub = $myclient;
         $dataextensionrow->Name = $dataExtensionName01;
 
-        $dataextensionrow->props = array(
-                                        'TYPE',
-                                        'NAME',
-                                        'KANA',
-                                        'MAIL',
-                                        'TEL1',
-                                        'TEL2',
-                                        'POSTCODE',
-                                        'CITY',
-                                        'ADDRESS',
-                                        'ADDRESS_NUMBER',
-                                        'NEW_POSTCODE',
-                                        'NEW_CITY',
-                                        'NEW_ADDRESS',
-                                        'NEW_ADDRESS_NUMBER',
-                                        'ESTIMATE_DATE',
-                                        'MOVING_DATE1',
-                                        'MOVING_DATE2',
-                                        'MOVING_DATE3',
-                                        'REQUEST',
-                                        'FREE_DIAL',
-                                        'SMC_NUMBER',
-                                        'UID_HUSH',
-                                        'REG_DATE',
-                                    );
+        $dataextensionrow->props = $aColumnArray;
         $response_01 = $dataextensionrow->get();
 
 
@@ -260,29 +236,13 @@ table th {
                 <tr>
                 <form action="./">
                     <th colspan="2"><input type="submit" name="crt" value="新規登録"></th>
-                    <th><input type="text" name="TYPE" value=""></th>
-                    <th><input type="text" name="NAME" value=""></th>
-                    <th><input type="text" name="KANA" value=""></th>
-                    <th><input type="text" name="MAIL" value=""></th>
-                    <th><input type="text" name="TEL1" value=""></th>
-                    <th><input type="text" name="TEL2" value=""></th>
-                    <th><input type="text" name="POSTCODE" value=""></th>
-                    <th><input type="text" name="CITY" value=""></th>
-                    <th><input type="text" name="ADDRESS" value=""></th>
-                    <th><input type="text" name="ADDRESS_NUMBER" value=""></th>
-                    <th><input type="text" name="NEW_POSTCODE" value=""></th>
-                    <th><input type="text" name="NEW_CITY" value=""></th>
-                    <th><input type="text" name="NEW_ADDRESS" value=""></th>
-                    <th><input type="text" name="NEW_ADDRESS_NUMBER" value=""></th>
-                    <th><input type="text" name="ESTIMATE_DATE" value=""></th>
-                    <th><input type="text" name="MOVING_DATE1" value=""></th>
-                    <th><input type="text" name="MOVING_DATE2" value=""></th>
-                    <th><input type="text" name="MOVING_DATE3" value=""></th>
-                    <th><input type="text" name="REQUEST" value=""></th>
-                    <th><input type="text" name="FREE_DIAL" value=""></th>
-                    <th><input type="text" name="SMC_NUMBER" value=""></th>
-                    <th><input type="text" name="UID_HUSH" value=""></th>
-                    <th><input type="text" name="REG_DATE" value=""></th>
+<?php
+        foreach ($aColumnArray as $sName) {
+            print('<th><input type="text" name="' . $sName . '" value=""></th>');
+        }
+
+?>
+
                 </form>
                 </tr>
             </table>
