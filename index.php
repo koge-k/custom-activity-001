@@ -225,7 +225,7 @@ table th {
         $dColumn = new ET_DataExtension_Column();
         $dColumn->authStub = $myclient;
         $dColumn->props = array('Name', 'CustomerKey');
-        $dColumn->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => 'MyDataExtension');
+        $dColumn->filter = array('Property' => 'CustomerKey','SimpleOperator' => 'equals','Value' => $dataExtensionExternalKey01);
 
 
 
