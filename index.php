@@ -226,7 +226,7 @@ table th {
         $dColumn->authStub = $myclient;
         $dColumn->Name = $dataExtensionName01;
         $dColumn->props = array('Name', 'CustomerKey');
-        $dColumn->.search_filter = array(
+        $dColumn->search_filter = array(
                                         'Property' => 'DataExtension.CustomerKey',
                                         'SimpleOperator' => 'equals',
                                         'Value' => customer_key
