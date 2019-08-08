@@ -14,8 +14,8 @@ if (isset($_REQUEST['crt']) && $_REQUEST['crt']) {
 } elseif (isset($_REQUEST['del_02']) && $_REQUEST['del_02']) {
     $btn = 5;
 }
-if (isset($_REQUEST['uid_hush']) && $_REQUEST['uid_hush']) {
-    $uid_hush = $_REQUEST['uid_hush'];
+if (isset($_REQUEST['UID_HUSH']) && $_REQUEST['UID_HUSH']) {
+    $uid_hush = $_REQUEST['UID_HUSH'];
 }
 
 try {
@@ -221,7 +221,7 @@ table th {
                 print('<td><input type="submit" name="del" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     if ($param->Name == 'UID_HUSH') {
-                        print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
+                        print('<input type="hidden" name="UID_HUSH" value="' . $param->Value . '">');
                         print('<td>' . $param->Value . '</td>');
                     } else {
                         print('<td><input type="text" name="' . $param->Name . '" value="' . $param->Value . '" ></td>');
@@ -276,7 +276,7 @@ table th {
                 print('<td><input type="submit" name="del_02" value="×"></td>');
                 foreach ($row->Properties->Property as $param) {
                     if ($param->Name == 'UID_HUSH') {
-                        print('<input type="hidden" name="uid_hush" value="' . $param->Value . '">');
+                        print('<input type="hidden" name="UID_HUSH" value="' . $param->Value . '">');
                     }
                     print('<td>' . $param->Value . '</td>');
                 }
