@@ -234,7 +234,7 @@ table th {
 
         $aColumnArray = array();
         foreach ($odColumns->results as $aColumn) {
-            $aColumnArray[] = $aColumn['Name'];
+            $aColumnArray[] = $aColumn->Name;
         }
 
 print_r($aColumnArray);
@@ -370,6 +370,8 @@ print_r($aColumnArray);
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
+print_r($odColumns);
+
 ?>
                 <tr>
                 <form action="./">
