@@ -37,6 +37,9 @@ try {
     );
     $odColumns = $dColumn->get();
     foreach ($odColumns->results as $aColumn) {
+var_dump($aColumn);
+
+
         $aColumnArray[] = $aColumn->Name;
     }
 
