@@ -90,7 +90,7 @@ try {
                 $aProps[$sName] = $_REQUEST[$sName];
             }
 
-            $dataextensionrow->props = $aProps;p
+            $dataextensionrow->props = $aProps;
             $dataextensionrow->patch();
         }
 
