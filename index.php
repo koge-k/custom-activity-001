@@ -230,8 +230,6 @@ table th {
 
 
 
-        $dColumn->Name = $dataExtensionName01;
-
 
 
 
