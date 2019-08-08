@@ -215,7 +215,7 @@ table th {
 
   <body>
     <div class="content_area">
-        <h1>1MCデータエクステンションの操作テスト</h1>
+        <h1>MCデータエクステンションの操作テスト</h1>
 
         <div class="list_area">
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
@@ -278,6 +278,8 @@ table th {
                                         'REG_DATE',
                                     );
         $response_01 = $dataextensionrow->get();
+var_dump($response_01);
+
 
         if ($response_01->status && count($response_01->results)) {
             foreach ($response_01->results as $row) {
