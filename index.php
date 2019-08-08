@@ -225,9 +225,6 @@ table th {
         $dataextensionrow->authStub = $myclient;
         $dataextensionrow->Name = $dataExtensionName01;
 
-        $dataextensionrow->props = array(
-
-                                    );
         $response_01 = $dataextensionrow->get();
 var_dump($response_01);
 
