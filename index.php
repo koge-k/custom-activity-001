@@ -282,6 +282,12 @@ var_dump($response_01);
 
 
         if ($response_01->status && count($response_01->results)) {
+            print('<tr><th>更新</th><th>削除</th>');
+            foreach ($response_01->results[0]->Properties->Property as $param) {
+                print('<th>' . $param->Name . '</th>');
+            }
+            print('</tr>');
+
             foreach ($response_01->results as $row) {
                 print('<tr>');
                 print('<form action="./">');
