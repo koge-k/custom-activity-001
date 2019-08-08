@@ -226,7 +226,7 @@ table th {
         $dColumn->authStub = $myclient;
         $dColumn->Name = $dataExtensionName01;
         $odColumns = $dColumn->get();
-var_dump($odColumns);
+print_r($odColumns);
 
 
 
@@ -261,7 +261,6 @@ var_dump($odColumns);
                                         'REG_DATE',
                                     );
         $response_01 = $dataextensionrow->get();
-var_dump($response_01);
 
 
         if ($response_01->status && count($response_01->results)) {
