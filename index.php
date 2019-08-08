@@ -25,6 +25,22 @@ try {
     $dataExtensionExternalKey02 = getenv('PUSH_REGISTRATION_DE_EXTERNAL_KEY_02');
     $dataExtensionName02 = getenv('PUSH_REGISTRATION_DE_NAME_02');
 
+    // カラム取得
+    $aColumnArray = array();
+    $dColumn = new ET_DataExtension_Column();
+    $dColumn->authStub = $myclient;
+    $dColumn->props = array('Name', 'CustomerKey');
+    $dColumn->filter = array(
+                            'Property' => 'CustomerKey',
+                            'SimpleOperator' => 'equals',
+                            'Value' => $dataExtensionExternalKey01
+    );
+    $odColumns = $dColumn->get();
+    foreach ($odColumns->results as $aColumn) {
+        $aColumnArray[] = $aColumn->Name;
+    }
+
+    // 登録時バリデート
     if ($btn == 1) {
         if (!isset($_REQUEST['UID_HUSH']) || !$_REQUEST['UID_HUSH']) {
             print('<p style="color: red; font-size: 20pt; padding: 20px;">UID_HUSHは必須です。</p>');
@@ -43,31 +59,12 @@ try {
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
-            $dataextensionrow->props = array(
-                                            'TYPE'                  => $_REQUEST['TYPE'],
-                                            'NAME'                  => $_REQUEST['NAME'],
-                                            'KANA'                  => $_REQUEST['KANA'],
-                                            'MAIL'                  => $_REQUEST['MAIL'],
-                                            'TEL1'                  => $_REQUEST['TEL1'],
-                                            'TEL2'                  => $_REQUEST['TEL2'],
-                                            'POSTCODE'              => $_REQUEST['POSTCODE'],
-                                            'CITY'                  => $_REQUEST['CITY'],
-                                            'ADDRESS'               => $_REQUEST['ADDRESS'],
-                                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
-                                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
-                                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
-                                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
-                                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
-                                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
-                                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
-                                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
-                                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
-                                            'REQUEST'               => $_REQUEST['REQUEST'],
-                                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
-                                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
-                                            'UID_HUSH'              => $_REQUEST['UID_HUSH'],
-                                            'REG_DATE'              => $_REQUEST['REG_DATE'],
-                                        );
+
+            $aProps = array();
+            foreach ($aColumnArray as $sName) {
+                $aProps[$sName] = $_REQUEST[$sName];
+            }
+            $dataextensionrow->props = $aProps;
             $dataextensionrow->post();
         }
 
@@ -88,31 +85,12 @@ try {
             $dataextensionrow = new ET_DataExtension_Row();
             $dataextensionrow->authStub = $myclient;
             $dataextensionrow->Name = $dataExtensionName01;
-            $dataextensionrow->props = array(
-                                            'TYPE'                  => $_REQUEST['TYPE'],
-                                            'NAME'                  => $_REQUEST['NAME'],
-                                            'KANA'                  => $_REQUEST['KANA'],
-                                            'MAIL'                  => $_REQUEST['MAIL'],
-                                            'TEL1'                  => $_REQUEST['TEL1'],
-                                            'TEL2'                  => $_REQUEST['TEL2'],
-                                            'POSTCODE'              => $_REQUEST['POSTCODE'],
-                                            'CITY'                  => $_REQUEST['CITY'],
-                                            'ADDRESS'               => $_REQUEST['ADDRESS'],
-                                            'ADDRESS_NUMBER'        => $_REQUEST['ADDRESS_NUMBER'],
-                                            'NEW_POSTCODE'          => $_REQUEST['NEW_POSTCODE'],
-                                            'NEW_CITY'              => $_REQUEST['NEW_CITY'],
-                                            'NEW_ADDRESS'           => $_REQUEST['NEW_ADDRESS'],
-                                            'NEW_ADDRESS_NUMBER'    => $_REQUEST['NEW_ADDRESS_NUMBER'],
-                                            'ESTIMATE_DATE'         => $_REQUEST['ESTIMATE_DATE'],
-                                            'MOVING_DATE1'          => $_REQUEST['MOVING_DATE1'],
-                                            'MOVING_DATE2'          => $_REQUEST['MOVING_DATE2'],
-                                            'MOVING_DATE3'          => $_REQUEST['MOVING_DATE3'],
-                                            'REQUEST'               => $_REQUEST['REQUEST'],
-                                            'FREE_DIAL'             => $_REQUEST['FREE_DIAL'],
-                                            'SMC_NUMBER'            => $_REQUEST['SMC_NUMBER'],
-                                            'UID_HUSH'              => $uid_hush,
-                                            'REG_DATE'              => $_REQUEST['REG_DATE'],
-                                        );
+            $aProps = array();
+            foreach ($aColumnArray as $sName) {
+                $aProps[$sName] = $_REQUEST[$sName];
+            }
+
+            $dataextensionrow->props = $aProps;p
             $dataextensionrow->patch();
         }
 
@@ -221,27 +199,6 @@ table th {
             <div class="list_title">[データエクステンション]：STIMATE_REQUEST_de</div>
             <table>
 <?php
-
-        $dColumn = new ET_DataExtension_Column();
-        $dColumn->authStub = $myclient;
-        $dColumn->props = array('Name', 'CustomerKey');
-        $dColumn->filter = array(
-                                'Property' => 'CustomerKey',
-                                'SimpleOperator' => 'equals',
-                                'Value' => $dataExtensionExternalKey01
-        );
-        $odColumns = $dColumn->get();
-
-        $aColumnArray = array();
-        foreach ($odColumns->results as $aColumn) {
-            $aColumnArray[] = $aColumn->Name;
-        }
-
-print_r($aColumnArray);
-
-
-
-
         $dataextensionrow = new ET_DataExtension_Row();
         $dataextensionrow->authStub = $myclient;
         $dataextensionrow->Name = $dataExtensionName01;
@@ -370,8 +327,6 @@ print_r($aColumnArray);
     } catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
-print_r($odColumns);
-
 ?>
                 <tr>
                 <form action="./">
