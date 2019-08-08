@@ -225,6 +225,7 @@ table th {
         $dColumn = new ET_DataExtension_Column();
         $dColumn->authStub = $myclient;
         $dColumn->Name = $dataExtensionName01;
+        $dColumn->props = array('Name', 'CustomerKey');
         $odColumns = $dColumn->get();
 print_r($odColumns);
 
